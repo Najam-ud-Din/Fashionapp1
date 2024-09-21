@@ -16,7 +16,7 @@ class Cateorypage extends StatelessWidget {
         leading: AppBackButton(),
         title: ReusableText(
           text: context.read<CateoryNotifier>().category,
-          style: appStyle(13, Kolors.kPrimary, FontWeight.bold),
+          style: appStyle(10, Kolors.kPrimary, FontWeight.bold),
         ),
       ),
     );

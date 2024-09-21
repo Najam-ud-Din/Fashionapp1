@@ -1,3 +1,4 @@
+import 'package:fashion_app/src/home/controllers/home_tab_notifier.dart';
 import 'package:fashion_app/src/home/widgets/categories-list.dart';
 import 'package:fashion_app/src/home/widgets/custombar.dart';
 import 'package:fashion_app/src/home/widgets/homeheader.dart';
@@ -5,9 +6,46 @@ import 'package:fashion_app/src/home/widgets/homeslider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+  late final TabController _tabcontroller;
+
+  int _currenttabindex = 0;
+
+  @override
+  void initState() {
+    _tabcontroller = TabController(length: hometab.length, vsync: this);
+    _tabcontroller.addListener(_handleselection);
+    // TODO: implement initState
+    super.initState();
+  }
+
+  void _handleselection() {
+    final controller = Provider.of<hometabnotofier>(context, listen: false);
+
+    if (_tabcontroller.indexIsChanging) {
+      setState(() {
+        _currenttabindex = _tabcontroller.index;  
+      });
+      controller.setindex(hometab[_currenttabindex]);
+    }
+  }
+
+  @override
+  void dispose() {
+    _tabcontroller.addListener(_handleselection);
+    _tabcontroller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,3 +72,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+List<String> hometab = ["All", "popular", "Unisex", "Men", "Women", "kid"];
