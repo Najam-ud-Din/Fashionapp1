@@ -13,7 +13,8 @@ class Hometabs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 22.h,
+      height: 50.h,
+      width: 40.w,
       child: TabBar(
         controller: _tabController,
         indicator: BoxDecoration(
@@ -23,12 +24,14 @@ class Hometabs extends StatelessWidget {
         dividerColor: Colors.transparent,
         tabAlignment: TabAlignment.start,
         isScrollable: true,
-        labelStyle: appStyle(11, Kolors.kPrimary, FontWeight.w600),
-        unselectedLabelStyle: appStyle(11, Kolors.kGray, FontWeight.normal),
+        labelStyle: appStyle(20, Kolors.kPrimary, FontWeight.w600),
+        unselectedLabelStyle: appStyle(20, Kolors.kGray, FontWeight.normal),
         tabs: List.generate(
             hometab.length,
             (index) => Tab(
                   child: TabWidget(
+                    style: appStyle(4, Color.fromARGB(255, 191, 177, 177),
+                        FontWeight.normal),
                     text: hometab[index],
                   ),
                 )),

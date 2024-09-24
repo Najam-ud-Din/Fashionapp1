@@ -3,6 +3,7 @@ import 'package:fashion_app/src/home/widgets/categories-list.dart';
 import 'package:fashion_app/src/home/widgets/custombar.dart';
 import 'package:fashion_app/src/home/widgets/homeheader.dart';
 import 'package:fashion_app/src/home/widgets/homeslider.dart';
+import 'package:fashion_app/src/home/widgets/ometabs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
     if (_tabcontroller.indexIsChanging) {
       setState(() {
-        _currenttabindex = _tabcontroller.index;  
+        _currenttabindex = _tabcontroller.index;
       });
       controller.setindex(hometab[_currenttabindex]);
     }
@@ -67,6 +68,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             height: 15.h,
           ),
           HomeCateoriesList(),
+          SizedBox(
+            height: 10.h,
+          ),
+          Hometabs(
+            tabController: _tabcontroller,
+          ),
         ],
       ),
     );

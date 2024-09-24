@@ -40,5 +40,6 @@ class hometabnotofier with ChangeNotifier {
 
   void setqueryType(QueryType q) {
     querytype = q;
+    print(q.name);
   }
 }
