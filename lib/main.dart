@@ -2,6 +2,7 @@ import 'package:fashion_app/common/utils/app_routes.dart';
 import 'package:fashion_app/common/utils/environment.dart';
 import 'package:fashion_app/src/Categories/Controllers/cateory_modifier.dart';
 import 'package:fashion_app/src/Entrypoint/controller/bottombarindex.dart';
+import 'package:fashion_app/src/Products/Controllers/productnotifier.dart';
 import 'package:fashion_app/src/home/controllers/home_tab_notifier.dart';
 import 'package:fashion_app/src/onboarding/controllers/onboarding_notofier.dart';
 import 'package:fashion_app/src/splashscreen/view/splashscreenpage.dart';
@@ -27,6 +28,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => tabindexnotifier()),
         ChangeNotifierProvider(create: (_) => CateoryNotifier()),
         ChangeNotifierProvider(create: (_) => hometabnotofier()),
+        ChangeNotifierProvider(create: (_) => productnotofier()),
       ],
       child: DevicePreview(
           enabled: !kReleaseMode, builder: ((context) => const MyApp()))));

@@ -3,11 +3,14 @@ import 'package:fashion_app/common/services/storage.dart';
 import 'package:fashion_app/common/utils/kcolors.dart';
 import 'package:fashion_app/common/widgets/app_style.dart';
 import 'package:fashion_app/common/widgets/reusable_text.dart';
+import 'package:fashion_app/src/Products/Controllers/productnotifier.dart';
 import 'package:fashion_app/src/Products/models/productsmodels.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 class StageredTileWidget extends StatelessWidget {
   final int i;
@@ -18,12 +21,16 @@ class StageredTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? accesstoken = Storage().getString('accessToken');
+    // String? accesstoken = Storage().getString('accessToken');
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        context.read<productnotofier>().setproduct(products);
+        context.push('/product/${products.id}');
+      },
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(10),
         child: Container(
+          height: 400,
           color: Kolors.kOffWhite,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +44,21 @@ class StageredTileWidget extends StatelessWidget {
                       imageUrl: products.imageUrls[0],
                       height: i % 2 == 0 ? 163.h : 180.h,
                       fit: BoxFit.cover,
-                    )
+                    ),
+                    Positioned(
+                        right: 10.h,
+                        top: 10.h,
+                        child: GestureDetector(
+                          onTap: ontap,
+                          child: CircleAvatar(
+                            backgroundColor: Kolors.kSecondaryLight,
+                            child: Icon(
+                              AntDesign.heart,
+                              color: Kolors.kRed,
+                              size: 16,
+                            ),
+                          ),
+                        ))
                   ],
                 ),
               ),
@@ -51,7 +72,7 @@ class StageredTileWidget extends StatelessWidget {
                         child: Text(
                           products.title,
                           overflow: TextOverflow.ellipsis,
-                          style: appStyle(12, Kolors.kDark, FontWeight.normal),
+                          style: appStyle(5, Kolors.kDark, FontWeight.normal),
                         ),
                       ),
                       Row(
@@ -67,7 +88,7 @@ class StageredTileWidget extends StatelessWidget {
                           ReusableText(
                               text: products.ratings.toStringAsFixed(1),
                               style: appStyle(
-                                  10, Kolors.kGrayLight, FontWeight.normal))
+                                  4, Kolors.kGrayLight, FontWeight.normal))
                         ],
                       )
                     ]),
@@ -76,7 +97,7 @@ class StageredTileWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 2.w),
                 child: ReusableText(
                   text: '\$ ${products.price.toStringAsFixed(2)}',
-                  style: appStyle(15, Kolors.kDark, FontWeight.w500),
+                  style: appStyle(6, Kolors.kDark, FontWeight.w500),
                 ),
               )
             ],

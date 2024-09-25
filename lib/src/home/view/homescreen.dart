@@ -1,3 +1,4 @@
+import 'package:fashion_app/src/Products/widgets/explore_products.dart';
 import 'package:fashion_app/src/home/controllers/home_tab_notifier.dart';
 import 'package:fashion_app/src/home/widgets/categories-list.dart';
 import 'package:fashion_app/src/home/widgets/custombar.dart';
@@ -73,6 +74,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ),
           Hometabs(
             tabController: _tabcontroller,
+          ),
+          SizedBox(
+            height: 15.h,
+          ),
+          ExploreProducts(),
+          SizedBox(
+            height: 150.h,
           ),
         ],
       ),

@@ -5,6 +5,7 @@ import 'package:fashion_app/src/Categories/view/categories.dart';
 import 'package:fashion_app/src/Categories/view/cateory_page.dart';
 import 'package:fashion_app/src/Entrypoint/view/Entrypointpage.dart';
 import 'package:fashion_app/src/Notification/view/notification.dart';
+import 'package:fashion_app/src/Products/views/Productspage.dart';
 import 'package:fashion_app/src/onboarding/view/onboardingpage.dart';
 import 'package:fashion_app/src/search/view/searchscreen.dart';
 import 'package:fashion_app/src/splashscreen/view/splashscreenpage.dart';
@@ -105,13 +106,13 @@ final GoRouter _router = GoRouter(
     //   builder: (context, state) => const FailedPayment(),
     // ),
 
-    // GoRoute(
-    //   path: '/product/:id',
-    //   builder: (BuildContext context, GoRouterState state) {
-    //     final productId = state.pathParameters['id'];
-    //     return ProductPage(productId: productId.toString());
-    //   },
-    // ),
+    GoRoute(
+      path: '/product/:id',
+      builder: (BuildContext context, GoRouterState state) {
+        final productId = state.pathParameters['id'];
+        return Productpage(productID: productId.toString());
+      },
+    ),
   ],
 );
 GoRouter get router => _router;
