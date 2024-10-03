@@ -8,4 +8,17 @@ class productnotofier with ChangeNotifier {
     product = p;
     notifyListeners();
   }
+
+  bool _description = false;
+
+  bool get description => _description;
+
+  void setdescription() {
+    _description = !_description;
+    notifyListeners();
+  }
+
+  void resetdes() {
+    _description = false;
+  }
 }

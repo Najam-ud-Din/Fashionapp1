@@ -203,7 +203,7 @@ List<Products> products = [
       title: "LV Trainers",
       price: 798.88,
       description:
-          "LV Trainers blend sleek style with athletic functionality, featuring bold logos, premium materials, and comfortable designs that elevate your everyday look with a touch of luxury.",
+          "LV Trainers blend sleek style with athletic functionality, featuring bold logos, premium materials, and comfortable designs that elevate your everyday look with a touch of luxury.LV Trainers blend sleek style with athletic",
       isFeatured: true,
       clothesType: "women",
       ratings: 4.5,
@@ -228,7 +228,7 @@ List<Products> products = [
       colors: ["navy", "grey", "blue"],
       imageUrls: [
         "https://media.cnn.com/api/v1/images/stellar/prod/220210051008-04-lv-virgil-abloh.jpg?q=w_2000,c_fill/f_webp",
-        "https://media.cnn.com/api/v1/images/stellar/prod/220210051008-04-lv-virgil-abloh.jpg?q=w_2000,c_fill/f_webp"
+        "https://media.cnn.com/api/v1/images/stellar/prod/220210051008-04-lv-virgil-abloh.jpg?q=w_2000,c_fill/f_webp",
       ],
       sizes: ["7", "8", "9", "10", "11"],
       createdAt: DateTime.parse("2024-06-06T07:55:20Z"),
