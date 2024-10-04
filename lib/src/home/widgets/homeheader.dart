@@ -16,14 +16,14 @@ class HomeHeader extends StatelessWidget {
       children: [
         ReusableText(
             text: AppText.kCategory,
-            style: appStyle(3, Kolors.kDark, FontWeight.w500)),
+            style: appStyle(16, Kolors.kDark, FontWeight.w500)),
         GestureDetector(
           onTap: () {
             context.push("/categories");
           },
           child: ReusableText(
               text: AppText.kViewAll,
-              style: appStyle(3, Kolors.kGray, FontWeight.w500)),
+              style: appStyle(16, Kolors.kGray, FontWeight.w500)),
         )
       ],
     );

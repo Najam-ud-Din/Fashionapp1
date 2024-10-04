@@ -42,7 +42,7 @@ class _AppEntryPointState extends State<AppEntryPoint> {
                     elevation: 0,
                     backgroundColor: Kolors.kOffWhite,
                     selectedLabelStyle:
-                        appStyle(4, Kolors.kPrimary, FontWeight.w500),
+                        appStyle(12, Kolors.kPrimary, FontWeight.w500),
                     showUnselectedLabels: false,
                     selectedItemColor: Kolors.kPrimary,
                     unselectedItemColor: Kolors.kGrayLight,

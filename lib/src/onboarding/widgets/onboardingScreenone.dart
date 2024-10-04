@@ -17,7 +17,7 @@ class OnboardingScreenone extends StatelessWidget {
         children: [
           Image.asset(
             R.ASSETS_IMAGES_EXPERIENCE_PNG,
-            fit: BoxFit.cover,
+            fit: BoxFit.fitWidth,
           ),
           Positioned(
             bottom: 120,

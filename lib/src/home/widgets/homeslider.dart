@@ -49,20 +49,20 @@ class HomeSlider extends StatelessWidget {
                 children: [
                   ReusableText(
                       text: AppText.kCollection,
-                      style: appStyle(5, Kolors.kDark, FontWeight.w500)),
+                      style: appStyle(18, Kolors.kDark, FontWeight.w500)),
                   SizedBox(
                     height: 6,
                   ),
                   ReusableText(
                       text: "Discount 50% Off \n the every transaction",
-                      style: appStyle(5, Kolors.kDark, FontWeight.w500)),
+                      style: appStyle(18, Kolors.kDark, FontWeight.w500)),
                   SizedBox(
                     height: 6,
                   ),
                   GradientBtn(
                     text: "Shop now",
                     btnWidth: 150,
-                    textSize: 4,
+                    textSize: 15,
                     btnHieght: 30,
                   ),
                 ],

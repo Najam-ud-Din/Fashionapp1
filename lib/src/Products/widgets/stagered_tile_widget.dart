@@ -72,7 +72,7 @@ class StageredTileWidget extends StatelessWidget {
                         child: Text(
                           products.title,
                           overflow: TextOverflow.ellipsis,
-                          style: appStyle(5, Kolors.kDark, FontWeight.normal),
+                          style: appStyle(12, Kolors.kDark, FontWeight.normal),
                         ),
                       ),
                       Row(
@@ -87,8 +87,8 @@ class StageredTileWidget extends StatelessWidget {
                           ),
                           ReusableText(
                               text: products.ratings.toStringAsFixed(1),
-                              style: appStyle(
-                                  4, Kolors.kGrayLight, FontWeight.normal))
+                              style:
+                                  appStyle(10, Kolors.kDark, FontWeight.normal))
                         ],
                       )
                     ]),
@@ -97,7 +97,7 @@ class StageredTileWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 2.w),
                 child: ReusableText(
                   text: '\$ ${products.price.toStringAsFixed(2)}',
-                  style: appStyle(6, Kolors.kDark, FontWeight.w500),
+                  style: appStyle(15, Kolors.kDark, FontWeight.w500),
                 ),
               )
             ],

@@ -5,7 +5,11 @@ import 'package:fashion_app/common/widgets/back_button.dart';
 import 'package:fashion_app/common/widgets/reusable_text.dart';
 import 'package:fashion_app/const/constants.dart';
 import 'package:fashion_app/src/Products/Controllers/productnotifier.dart';
+import 'package:fashion_app/src/Products/widgets/colorselecctionwidget.dart';
 import 'package:fashion_app/src/Products/widgets/expandedtext.dart';
+import 'package:fashion_app/src/Products/widgets/product_bottomnavigationbar.dart';
+import 'package:fashion_app/src/Products/widgets/productsizedwidget.dart';
+import 'package:fashion_app/src/Products/widgets/similarproducts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -149,6 +153,17 @@ class Productpage extends StatelessWidget {
               ),
             ),
             SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Productsizedwidget(),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 10.h,
+              ),
+            ),
+            SliverToBoxAdapter(
                 child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: ReusableText(
@@ -161,13 +176,30 @@ class Productpage extends StatelessWidget {
               ),
             ),
             SliverToBoxAdapter(
+              child: Colorselecctionwidget(),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 10.h,
+              ),
+            ),
+            SliverToBoxAdapter(
                 child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: ReusableText(
-                  text: "Similar Productss",
+                  text: "Similar Products",
                   style: appStyle(3, Kolors.kDark, FontWeight.w600)),
             )),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Similarproducts(),
+              ),
+            ),
           ],
+        ),
+        bottomNavigationBar: ProductBottomnavigationbars(
+          price: productNotofier.product!.price.toStringAsFixed(2),
         ),
       );
     });

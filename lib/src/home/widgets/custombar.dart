@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget {
             padding: const EdgeInsets.only(left: 2.0),
             child: ReusableText(
                 text: "Location",
-                style: appStyle(5, Kolors.kGray, FontWeight.normal)),
+                style: appStyle(15, Kolors.kGray, FontWeight.normal)),
           ),
           SizedBox(
             height: 5.h,
@@ -38,7 +38,7 @@ class CustomAppBar extends StatelessWidget {
                 width: 200,
                 child: Text(
                   "Please select your location",
-                  style: appStyle(4, Kolors.kPrimary, FontWeight.w500),
+                  style: appStyle(13, Kolors.kPrimary, FontWeight.w500),
                 ),
               ),
             ],
@@ -60,8 +60,8 @@ class CustomAppBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      height: 49.h,
-                      width: ScreenUtil().screenWidth * 0.24,
+                      width: ScreenUtil().screenWidth - 70,
+                      height: 47.h,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(7),
                           border: Border.all(
@@ -80,7 +80,7 @@ class CustomAppBar extends StatelessWidget {
                           ReusableText(
                               text: "Search products",
                               style:
-                                  appStyle(4, Kolors.kGray, FontWeight.normal))
+                                  appStyle(17, Kolors.kGray, FontWeight.normal))
                         ],
                       ),
                     ),

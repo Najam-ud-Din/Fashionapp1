@@ -1,7 +1,7 @@
 import 'package:fashion_app/common/utils/app_routes.dart';
-import 'package:fashion_app/common/utils/environment.dart';
 import 'package:fashion_app/src/Categories/Controllers/cateory_modifier.dart';
 import 'package:fashion_app/src/Entrypoint/controller/bottombarindex.dart';
+import 'package:fashion_app/src/Products/Controllers/colorsizesnotifier.dart';
 import 'package:fashion_app/src/Products/Controllers/productnotifier.dart';
 import 'package:fashion_app/src/home/controllers/home_tab_notifier.dart';
 import 'package:fashion_app/src/onboarding/controllers/onboarding_notofier.dart';
@@ -22,16 +22,14 @@ void main() async {
   //await dotenv.load(fileName: Environment.fileName);
   await GetStorage.init();
 
-  runApp(MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => OnBoardingNotifier()),
-        ChangeNotifierProvider(create: (_) => tabindexnotifier()),
-        ChangeNotifierProvider(create: (_) => CateoryNotifier()),
-        ChangeNotifierProvider(create: (_) => hometabnotofier()),
-        ChangeNotifierProvider(create: (_) => productnotofier()),
-      ],
-      child: DevicePreview(
-          enabled: !kReleaseMode, builder: ((context) => const MyApp()))));
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_) => OnBoardingNotifier()),
+    ChangeNotifierProvider(create: (_) => tabindexnotifier()),
+    ChangeNotifierProvider(create: (_) => CateoryNotifier()),
+    ChangeNotifierProvider(create: (_) => hometabnotofier()),
+    ChangeNotifierProvider(create: (_) => productnotofier()),
+    ChangeNotifierProvider(create: (_) => colorsizesnotifier()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -55,9 +53,6 @@ class MyApp extends StatelessWidget {
               PointerDeviceKind.touch,
               PointerDeviceKind.mouse,
             }),
-            useInheritedMediaQuery: true,
-            locale: DevicePreview.locale(context),
-            builder: DevicePreview.appBuilder,
             debugShowCheckedModeBanner: false,
             title: 'Fashion App',
             theme: ThemeData(

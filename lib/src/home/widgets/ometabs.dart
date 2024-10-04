@@ -30,7 +30,7 @@ class Hometabs extends StatelessWidget {
             hometab.length,
             (index) => Tab(
                   child: TabWidget(
-                    style: appStyle(4, Color.fromARGB(255, 191, 177, 177),
+                    style: appStyle(14, Color.fromARGB(255, 191, 177, 177),
                         FontWeight.normal),
                     text: hometab[index],
                   ),
