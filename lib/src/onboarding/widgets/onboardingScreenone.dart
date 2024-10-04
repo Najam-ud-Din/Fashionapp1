@@ -26,7 +26,7 @@ class OnboardingScreenone extends StatelessWidget {
             child: Text(
               AppText.kOnboardHome,
               textAlign: TextAlign.center,
-              style: appStyle(4, Kolors.kGray, FontWeight.normal),
+              style: appStyle(15, Kolors.kGray, FontWeight.normal),
             ),
           ),
         ],

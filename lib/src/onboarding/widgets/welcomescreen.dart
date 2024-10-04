@@ -15,32 +15,34 @@ class WelconmeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: ScreenUtil().screenWidth,
         height: ScreenUtil().screenWidth,
         child: Column(
           children: [
             SizedBox(
-              height: 100.h,
+              height: 30.h,
             ),
-            Image.asset(R.ASSETS_IMAGES_GETSTARTED_PNG),
             SizedBox(
-              height: 40.h,
+                height: 440.h,
+                child: Image.asset(R.ASSETS_IMAGES_GETSTARTED_PNG)),
+            SizedBox(
+              height: 30.h,
             ),
             Text(
               AppText.kWelcomeHeader,
               textAlign: TextAlign.center,
-              style: appStyle(7, Kolors.kPrimary, FontWeight.bold),
+              style: appStyle(23, Kolors.kPrimary, FontWeight.bold),
             ),
             SizedBox(
-              height: 30.h,
+              height: 20.h,
             ),
             SizedBox(
               width: ScreenUtil().screenWidth - 130,
               child: Text(
                 AppText.kWelcomeMessage,
                 textAlign: TextAlign.center,
-                style: appStyle(4, Kolors.kGray, FontWeight.normal),
+                style: appStyle(12, Kolors.kGray, FontWeight.normal),
               ),
             ),
             SizedBox(
@@ -51,36 +53,38 @@ class WelconmeScreen extends StatelessWidget {
               btnWidth: 300,
               btnHieght: 40,
               radius: 10,
-              textSize: 8,
+              textSize: 16,
               onTap: () {
                 Storage().setBool('firstopen', true);
                 context.go('/home');
               },
             ),
             SizedBox(
-              height: 20.h,
+              height: 15.h,
             ),
             Center(
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 2.w,
-                  ),
-                  Center(
-                    child: ReusableText(
-                      text: "Already have a account?",
-                      style: appStyle(6, Kolors.kDark, FontWeight.normal),
+              child: Center(
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 2.w,
                     ),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        context.go('/login');
-                      },
-                      child: Text(
-                        "Sign in",
-                        style: appStyle(5, Colors.blue, FontWeight.normal),
-                      )),
-                ],
+                    Center(
+                      child: ReusableText(
+                        text: "Already have a account?",
+                        style: appStyle(23, Kolors.kDark, FontWeight.normal),
+                      ),
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          context.go('/login');
+                        },
+                        child: Text(
+                          "Sign in",
+                          style: appStyle(22, Colors.blue, FontWeight.normal),
+                        )),
+                  ],
+                ),
               ),
             )
           ],

@@ -26,7 +26,7 @@ class OnboardingScreentwo extends StatelessWidget {
             child: Text(
               AppText.kOnboardWishListMessage,
               textAlign: TextAlign.center,
-              style: appStyle(4, Kolors.kGray, FontWeight.normal),
+              style: appStyle(15, Kolors.kGray, FontWeight.normal),
             ),
           ),
         ],
