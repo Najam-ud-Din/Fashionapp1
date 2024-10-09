@@ -9,16 +9,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginSceen extends StatefulWidget {
-  const LoginSceen({super.key});
+class RegistrationScreen extends StatefulWidget {
+  const RegistrationScreen({super.key});
 
   @override
-  State<LoginSceen> createState() => _LoginSceenState();
+  State<RegistrationScreen> createState() => _LoginSceenState();
 }
 
-class _LoginSceenState extends State<LoginSceen> {
-  late final TextEditingController _usernamecontroller =
-      TextEditingController();
+class _LoginSceenState extends State<RegistrationScreen> {
+  late final TextEditingController _emailcontroller = TextEditingController();
+  late final TextEditingController _usercontroller = TextEditingController();
   late final TextEditingController _passwordcontroller =
       TextEditingController();
 
@@ -28,7 +28,8 @@ class _LoginSceenState extends State<LoginSceen> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    _usernamecontroller.dispose();
+    _emailcontroller.dispose();
+    _usercontroller.dispose();
     _passwordcontroller.dispose();
     _passwordNode.dispose();
   }
@@ -40,11 +41,7 @@ class _LoginSceenState extends State<LoginSceen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
-        leading: AppBackButton(
-          onTap: () {
-            context.go('/home');
-          },
-        ),
+        leading: AppBackButton(),
       ),
       body: ListView(
         children: [
@@ -75,9 +72,27 @@ class _LoginSceenState extends State<LoginSceen> {
                   radius: 25,
                   focusNode: _passwordNode,
                   hintText: "Username",
-                  controller: _usernamecontroller,
+                  controller: _usercontroller,
                   prefixIcon: Icon(
                     CupertinoIcons.profile_circled,
+                    size: 20,
+                    color: Kolors.kGray,
+                  ),
+                  keyboardType: TextInputType.name,
+                  onEditingComplete: () {
+                    FocusScope.of(context).requestFocus(_passwordNode);
+                  },
+                ),
+                SizedBox(
+                  height: 5.h,
+                ),
+                EmailTextField(
+                  radius: 25,
+                  focusNode: _passwordNode,
+                  hintText: "Email",
+                  controller: _emailcontroller,
+                  prefixIcon: Icon(
+                    CupertinoIcons.mail,
                     size: 20,
                     color: Kolors.kGray,
                   ),
@@ -97,7 +112,7 @@ class _LoginSceenState extends State<LoginSceen> {
                 ElevatedButton(
                   onPressed: () {},
                   child: Text(
-                    "LOGIN",
+                    "REGISTER",
                     style: appStyle(10, Kolors.kOffWhite, FontWeight.normal),
                   ),
                 )
@@ -111,10 +126,10 @@ class _LoginSceenState extends State<LoginSceen> {
         child: Center(
           child: GestureDetector(
             onTap: () {
-              context.push("/register");
+              context.push("/login");
             },
             child: Text(
-              "Do not have an account? register a new account",
+              "Do not have account? Login to your account",
               style: appStyle(12, Colors.blue, FontWeight.normal),
             ),
           ),

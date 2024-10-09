@@ -1,4 +1,5 @@
 import 'package:fashion_app/common/utils/app_routes.dart';
+import 'package:fashion_app/src/Auth/controllers/PasswordNotifier.dart';
 import 'package:fashion_app/src/Categories/Controllers/cateory_modifier.dart';
 import 'package:fashion_app/src/Entrypoint/controller/bottombarindex.dart';
 import 'package:fashion_app/src/Products/Controllers/colorsizesnotifier.dart';
@@ -25,6 +26,7 @@ void main() async {
     ChangeNotifierProvider(create: (_) => hometabnotofier()),
     ChangeNotifierProvider(create: (_) => productnotofier()),
     ChangeNotifierProvider(create: (_) => colorsizesnotifier()),
+    ChangeNotifierProvider(create: (_) => PasswordNotifier()),
   ], child: const MyApp()));
 }
 

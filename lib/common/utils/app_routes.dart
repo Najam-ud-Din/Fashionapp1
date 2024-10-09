@@ -1,12 +1,16 @@
 // ignore_for_file: unused_element
 
 import 'package:fashion_app/src/Auth/view/login_screen.dart';
+import 'package:fashion_app/src/Auth/view/registration_screen.dart';
 import 'package:fashion_app/src/Categories/view/categories.dart';
 import 'package:fashion_app/src/Categories/view/cateory_page.dart';
 import 'package:fashion_app/src/Entrypoint/view/Entrypointpage.dart';
 import 'package:fashion_app/src/Notification/view/notification.dart';
 import 'package:fashion_app/src/Products/views/Productspage.dart';
 import 'package:fashion_app/src/onboarding/view/onboardingpage.dart';
+import 'package:fashion_app/src/profile/view/orderscreen.dart';
+import 'package:fashion_app/src/profile/view/policy.dart';
+import 'package:fashion_app/src/profile/view/shipping_order.dart';
 import 'package:fashion_app/src/search/view/searchscreen.dart';
 import 'package:fashion_app/src/splashscreen/view/splashscreenpage.dart';
 import 'package:flutter/material.dart';
@@ -34,10 +38,10 @@ final GoRouter _router = GoRouter(
     //   path: '/review',
     //   builder: (context, state) => const ReviewsPage(),
     // ),
-    // GoRoute(
-    //   path: '/policy',
-    //   builder: (context, state) => const PolicyPage(),
-    // ),
+    GoRoute(
+      path: '/policy',
+      builder: (context, state) => const PolicyScreen(),
+    ),
     // GoRoute(
     //   path: '/verification',
     //   builder: (context, state) => const VerificationPage(),
@@ -50,18 +54,18 @@ final GoRouter _router = GoRouter(
     //   path: '/help',
     //   builder: (context, state) => const HelpCenterPage(),
     // ),
-    // GoRoute(
-    //   path: '/orders',
-    //   builder: (context, state) => const OrdersPage(),
-    // ),
+    GoRoute(
+      path: '/orders',
+      builder: (context, state) => const Orderscreen(),
+    ),
     GoRoute(
       path: '/login',
       builder: (context, state) => const LoginSceen(),
     ),
-    // GoRoute(
-    //   path: '/register',
-    //   builder: (context, state) => const RegistrationPage(),
-    // ),
+    GoRoute(
+      path: '/register',
+      builder: (context, state) => const RegistrationScreen(),
+    ),
     GoRoute(
       path: '/categories',
       builder: (context, state) => const CategoriesScreen(),
@@ -71,10 +75,10 @@ final GoRouter _router = GoRouter(
       builder: (context, state) => const Cateorypage(),
     ),
 
-    // GoRoute(
-    //   path: '/addaddress',
-    //   builder: (context, state) => const AddAddress(),
-    // ),
+    GoRoute(
+      path: '/addaddress',
+      builder: (context, state) => const ShippingOrder(),
+    ),
 
     // GoRoute(
     //   path: '/addresses',
