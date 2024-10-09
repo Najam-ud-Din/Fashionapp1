@@ -1,9 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fashion_app/common/services/storage.dart';
 import 'package:fashion_app/common/utils/kcolors.dart';
+import 'package:fashion_app/common/utils/kstrings.dart';
 import 'package:fashion_app/common/widgets/app_style.dart';
 import 'package:fashion_app/common/widgets/back_button.dart';
+import 'package:fashion_app/common/widgets/error_modal.dart';
+import 'package:fashion_app/common/widgets/login_bottom_sheet.dart';
 import 'package:fashion_app/common/widgets/reusable_text.dart';
 import 'package:fashion_app/const/constants.dart';
+import 'package:fashion_app/src/Products/Controllers/colorsizesnotifier.dart';
 import 'package:fashion_app/src/Products/Controllers/productnotifier.dart';
 import 'package:fashion_app/src/Products/widgets/colorselecctionwidget.dart';
 import 'package:fashion_app/src/Products/widgets/expandedtext.dart';
@@ -22,6 +27,7 @@ class Productpage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? acccesstoken = Storage().getString('accessTsoken');
     return Consumer<productnotofier>(
         builder: (context, productNotofier, child) {
       return Scaffold(
@@ -91,14 +97,14 @@ class Productpage extends StatelessWidget {
                 children: [
                   ReusableText(
                     text: productNotofier.product!.clothesType.toUpperCase(),
-                    style: appStyle(3, Kolors.kGray, FontWeight.w600),
+                    style: appStyle(18, Kolors.kGray, FontWeight.w600),
                   ),
                   Row(
                     children: [
                       Icon(
                         AntDesign.star,
                         color: Kolors.kGold,
-                        size: 10,
+                        size: 18,
                       ),
                       SizedBox(
                         width: 10,
@@ -106,7 +112,7 @@ class Productpage extends StatelessWidget {
                       ReusableText(
                         text:
                             productNotofier.product!.ratings.toStringAsFixed(2),
-                        style: appStyle(3, Kolors.kGray, FontWeight.w600),
+                        style: appStyle(18, Kolors.kGray, FontWeight.w600),
                       ),
                     ],
                   )
@@ -118,7 +124,7 @@ class Productpage extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: ReusableText(
                   text: productNotofier.product!.title,
-                  style: appStyle(6, Kolors.kDark, FontWeight.w600),
+                  style: appStyle(15, Kolors.kDark, FontWeight.w600),
                 ),
               ),
             ),
@@ -145,7 +151,7 @@ class Productpage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: ReusableText(
                   text: "Select Sizes",
-                  style: appStyle(3, Kolors.kDark, FontWeight.w600)),
+                  style: appStyle(15, Kolors.kDark, FontWeight.w600)),
             )),
             SliverToBoxAdapter(
               child: SizedBox(
@@ -168,7 +174,7 @@ class Productpage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: ReusableText(
                   text: "Select Color",
-                  style: appStyle(3, Kolors.kDark, FontWeight.w600)),
+                  style: appStyle(15, Kolors.kDark, FontWeight.w600)),
             )),
             SliverToBoxAdapter(
               child: SizedBox(
@@ -188,7 +194,7 @@ class Productpage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: ReusableText(
                   text: "Similar Products",
-                  style: appStyle(3, Kolors.kDark, FontWeight.w600)),
+                  style: appStyle(15, Kolors.kDark, FontWeight.w600)),
             )),
             SliverToBoxAdapter(
               child: Padding(
@@ -199,6 +205,17 @@ class Productpage extends StatelessWidget {
           ],
         ),
         bottomNavigationBar: ProductBottomnavigationbars(
+          onpressed: () {
+            // if (acccesstoken == null) {
+            //  loginBottomSheet(context);
+            // } else {
+            if (context.read<colorsizesnotifier>().color == "" ||
+                context.read<colorsizesnotifier>().sizes == "") {
+              showErrorPopup(context, AppText.kcarterrortext,
+                  "Error Editing to cart", true);
+            }
+            //}
+          },
           price: productNotofier.product!.price.toStringAsFixed(2),
         ),
       );

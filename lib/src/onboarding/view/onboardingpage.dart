@@ -32,103 +32,110 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size screensize = MediaQuery.of(context).size;
     return Scaffold(
-      body: Stack(
-        children: [
-          PageView(
-            controller: _pageController,
-            onPageChanged: (page) {
-              context.read<OnBoardingNotifier>().setSelectedPage = page;
-            },
-            children: [
-              OnboardingScreenone(),
-              OnboardingScreentwo(),
-              WelconmeScreen(),
-            ],
-          ),
-          context.read<OnBoardingNotifier>().selectpage == 2
-              ? const SizedBox(
-                  width: 60,
-                )
-              : Positioned(
-                  bottom: 50.h,
-                  left: 0,
-                  right: 0,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 30),
-                    width: ScreenUtil().screenWidth,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        context.watch<OnBoardingNotifier>().selectpage == 0
-                            ? SizedBox(
-                                width: 20.w,
-                              )
-                            : GestureDetector(
-                                onTap: () {
-                                  if (context
-                                          .read<OnBoardingNotifier>()
-                                          .selectpage >
-                                      0) {
-                                    _pageController.animateToPage(
-                                        context
-                                                .read<OnBoardingNotifier>()
-                                                .selectpage -
-                                            1,
-                                        duration: Duration(milliseconds: 200),
-                                        curve: Curves.easeIn);
-                                  }
-                                },
-                                child: Icon(
-                                  AntDesign.leftcircle,
-                                  color: Kolors.kPrimary,
-                                  size: 30,
+      body: Container(
+        width: double.infinity,
+        child: Stack(
+          children: [
+            PageView(
+              controller: _pageController,
+              onPageChanged: (page) {
+                context.read<OnBoardingNotifier>().setSelectedPage = page;
+              },
+              children: [
+                OnboardingScreenone(),
+                OnboardingScreentwo(),
+                WelconmeScreen(),
+              ],
+            ),
+            context.read<OnBoardingNotifier>().selectpage == 2
+                ? const SizedBox(
+                    width: 60,
+                  )
+                : Positioned(
+                    bottom: 40.h,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      width: ScreenUtil().screenWidth,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          context.watch<OnBoardingNotifier>().selectpage == 0
+                              ? SizedBox(
+                                  width: 20.w,
+                                )
+                              : GestureDetector(
+                                  onTap: () {
+                                    if (context
+                                            .read<OnBoardingNotifier>()
+                                            .selectpage >
+                                        0) {
+                                      _pageController.animateToPage(
+                                          context
+                                                  .read<OnBoardingNotifier>()
+                                                  .selectpage -
+                                              1,
+                                          duration: Duration(milliseconds: 200),
+                                          curve: Curves.easeIn);
+                                    }
+                                  },
+                                  child: Icon(
+                                    AntDesign.leftcircle,
+                                    color: Kolors.kPrimary,
+                                    size: 30,
+                                  ),
                                 ),
-                              ),
-                        SizedBox(
-                          width: 30.w,
-                          height: 50.h,
-                          child: PageViewDotIndicator(
-                            currentItem:
-                                context.watch<OnBoardingNotifier>().selectpage,
-                            count: 3,
-                            size: Size(10, 10),
-                            unselectedSize: Size(12, 12),
-                            unselectedColor: Colors.black26,
-                            selectedColor: Kolors.kPrimary,
-                            duration: Duration(milliseconds: 200),
-                            onItemClicked: (index) {
-                              _pageController.animateToPage(index,
-                                  duration: Duration(milliseconds: 200),
-                                  curve: Curves.easeIn);
+                          SizedBox(
+                            width: 70.w,
+                            height: 60.h,
+                            child: PageViewDotIndicator(
+                              currentItem: context
+                                  .watch<OnBoardingNotifier>()
+                                  .selectpage,
+                              count: 3,
+                              size: Size(10, 10),
+                              unselectedSize: Size(12, 12),
+                              unselectedColor: Colors.black26,
+                              selectedColor: Kolors.kPrimary,
+                              duration: Duration(milliseconds: 200),
+                              onItemClicked: (index) {
+                                _pageController.animateToPage(index,
+                                    duration: Duration(milliseconds: 200),
+                                    curve: Curves.easeIn);
+                              },
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              if (context
+                                      .read<OnBoardingNotifier>()
+                                      .selectpage <
+                                  2) {
+                                // Assuming 3 pages
+                                _pageController.animateToPage(
+                                    context
+                                            .read<OnBoardingNotifier>()
+                                            .selectpage +
+                                        1,
+                                    duration: Duration(milliseconds: 200),
+                                    curve: Curves.easeIn);
+                              }
                             },
+                            child: const Icon(
+                              AntDesign.rightcircle,
+                              color: Kolors.kPrimary,
+                              size: 30,
+                            ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            if (context.read<OnBoardingNotifier>().selectpage <
-                                2) {
-                              // Assuming 3 pages
-                              _pageController.animateToPage(
-                                  context
-                                          .read<OnBoardingNotifier>()
-                                          .selectpage +
-                                      1,
-                                  duration: Duration(milliseconds: 200),
-                                  curve: Curves.easeIn);
-                            }
-                          },
-                          child: const Icon(
-                            AntDesign.rightcircle,
-                            color: Kolors.kPrimary,
-                            size: 30,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )),
-        ],
+                        ],
+                      ),
+                    )),
+          ],
+        ),
       ),
     );
   }

@@ -24,7 +24,7 @@ Future<dynamic> loginBottomSheet(BuildContext context) {
             Center(
                 child: ReusableText(
                     text: AppText.kLogin,
-                    style: appStyle(5, Kolors.kPrimary, FontWeight.w500))),
+                    style: appStyle(12, Kolors.kPrimary, FontWeight.w500))),
             SizedBox(
               height: 10.h,
             ),
@@ -38,7 +38,7 @@ Future<dynamic> loginBottomSheet(BuildContext context) {
             Center(
                 child: ReusableText(
                     text: AppText.kLoginText,
-                    style: appStyle(3, Kolors.kGray, FontWeight.w500))),
+                    style: appStyle(9, Kolors.kGray, FontWeight.w500))),
             SizedBox(
               height: 20.h,
             ),

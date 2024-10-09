@@ -7,12 +7,8 @@ import 'package:fashion_app/src/home/controllers/home_tab_notifier.dart';
 import 'package:fashion_app/src/onboarding/controllers/onboarding_notofier.dart';
 import 'package:fashion_app/src/splashscreen/view/splashscreenpage.dart';
 import 'package:flutter/material.dart';
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'dart:ui';
-
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
 
@@ -40,12 +36,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screensize = MediaQuery.of(context).size;
     return ScreenUtilInit(
-        designSize: screensize,
+        designSize: Size(375, 812),
         minTextAdapt: true,
         splitScreenMode: false,
         useInheritedMediaQuery: true,
         child: const SplashScreen(),
-        builder: (_, child) {
+        builder: (context, child) {
           return MaterialApp.router(
             routerConfig: router,
             scrollBehavior:

@@ -2,6 +2,8 @@ class AppText {
   static const String kCategory = 'Category';
   static const String kstart = "Let's get Started";
   static const String kCategories = 'Categories';
+  static const String kcarterrortext =
+      "Please select sizes and colors to go cart";
   static const String kNotifications = 'Notifications';
   static const String kAddresses = 'Addresses';
   static const String kAddShipping = 'Add Shipping Address';

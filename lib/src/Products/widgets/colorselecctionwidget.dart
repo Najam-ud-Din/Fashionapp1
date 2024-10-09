@@ -28,8 +28,6 @@ class Colorselecctionwidget extends StatelessWidget {
                   margin: EdgeInsets.only(
                     right: 20.w,
                   ),
-                  height: 30.h,
-                  width: 45.w,
                   decoration: BoxDecoration(
                     color: controller.color == c
                         ? Kolors.kPrimary

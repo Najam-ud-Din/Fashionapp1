@@ -18,7 +18,7 @@ class Expandibletext extends StatelessWidget {
           text,
           textAlign: TextAlign.justify,
           maxLines: !context.watch<productnotofier>().description ? 3 : 10,
-          style: appStyle(3, Kolors.kGray, FontWeight.normal),
+          style: appStyle(14, Kolors.kGray, FontWeight.normal),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,

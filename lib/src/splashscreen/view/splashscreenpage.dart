@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   _navigator() async {
     await Future.delayed(Duration(milliseconds: 4000), () {
-      if (Storage().getBool("firstopen") == null) {
+      if (Storage().getBool("second") == null) {
         //Go to the onboardign screen
         GoRouter.of(context).go('/onboarding');
       } else {

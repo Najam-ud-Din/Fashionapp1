@@ -72,7 +72,7 @@ class StageredTileWidget extends StatelessWidget {
                         child: Text(
                           products.title,
                           overflow: TextOverflow.ellipsis,
-                          style: appStyle(12, Kolors.kDark, FontWeight.normal),
+                          style: appStyle(10, Kolors.kDark, FontWeight.normal),
                         ),
                       ),
                       Row(
@@ -80,7 +80,7 @@ class StageredTileWidget extends StatelessWidget {
                           Icon(
                             AntDesign.star,
                             color: Kolors.kGold,
-                            size: 14,
+                            size: 12,
                           ),
                           SizedBox(
                             width: 4.w,

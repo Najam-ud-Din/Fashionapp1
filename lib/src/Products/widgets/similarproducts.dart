@@ -19,7 +19,7 @@ class Similarproducts extends StatelessWidget {
           mainAxisSpacing: 4,
           crossAxisSpacing: 4,
           children: List.generate(products.length, (index) {
-            final double mainAxisCellCount = (index % 2 == 0 ? 2.13 : 2.3);
+            final double mainAxisCellCount = (index % 2 == 0 ? 2.45 : 2.6);
             final product = products[index];
             return StaggeredGridTile.count(
                 crossAxisCellCount: 2,

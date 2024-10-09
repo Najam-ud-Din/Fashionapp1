@@ -1,0 +1,29 @@
+import 'package:fashion_app/common/utils/kcolors.dart';
+import 'package:fashion_app/common/widgets/app_style.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+
+class profiletilewidget extends StatelessWidget {
+  final String title;
+  final void Function()? ontap;
+  final IconData leading;
+  const profiletilewidget(
+      {super.key, required this.title, this.ontap, required this.leading});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      visualDensity: VisualDensity.compact,
+      onTap: ontap,
+      leading: Icon(
+        leading,
+        color: Kolors.kGray,
+      ),
+      title: Text(
+        title,
+        style: appStyle(12, Kolors.kDark, FontWeight.normal),
+      ),
+      trailing: Icon(AntDesign.right, size: 16, color: Kolors.kDark),
+    );
+  }
+}

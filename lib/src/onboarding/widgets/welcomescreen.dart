@@ -15,20 +15,17 @@ class WelconmeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        width: ScreenUtil().screenWidth,
-        height: ScreenUtil().screenWidth,
-        child: SingleChildScrollView(
+      body: Center(
+        child: SizedBox(
+          width: ScreenUtil().screenWidth,
+          height: ScreenUtil().screenWidth,
           child: Column(
             children: [
               SizedBox(
                 height: 30.h,
               ),
               SizedBox(
-                  height: 440.h,
-                  child: Image.asset(R.ASSETS_IMAGES_GETSTARTED_PNG)),
-              SizedBox(
-                height: 30.h,
+                height: 80.h,
               ),
               Text(
                 AppText.kWelcomeHeader,
@@ -56,7 +53,7 @@ class WelconmeScreen extends StatelessWidget {
                 radius: 10,
                 textSize: 16,
                 onTap: () {
-                  Storage().setBool('firstopen', true);
+                  Storage().setBool('second', true);
                   context.go('/home');
                 },
               ),
@@ -71,9 +68,13 @@ class WelconmeScreen extends StatelessWidget {
                         width: 2.w,
                       ),
                       Center(
-                        child: ReusableText(
-                          text: "Already have a account?",
-                          style: appStyle(23, Kolors.kDark, FontWeight.normal),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 6.0),
+                          child: ReusableText(
+                            text: "Already have a account?",
+                            style:
+                                appStyle(20, Kolors.kDark, FontWeight.normal),
+                          ),
                         ),
                       ),
                       TextButton(
